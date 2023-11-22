@@ -3,6 +3,9 @@
 //
 #include "Vehicle.h"
 
-Car::Car(std::string type, std::string plateNumber, std::string time, std::array<std::string, 1000> carNumbers)
-        : Vehicle(type, plateNumber, time), carNumber(carNumbers) {
+Car::Car(std::string vehicleDate, std::string vehicleType, std::string plateNumber,
+         std::string vehicleAction, std::string vehicleTime, float price)
+        : Vehicle(vehicleDate, vehicleType, plateNumber, vehicleAction, vehicleTime)
+{
+    this->carPrice = price;
 }

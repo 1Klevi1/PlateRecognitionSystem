@@ -5,44 +5,98 @@
 #ifndef COURSEWORK_VEHICLE_H
 #define COURSEWORK_VEHICLE_H
 #include <string>
-#include <array>
+#include <vector>
+#include <ostream>
 
 class Vehicle {
 private:
-    std::string type;
+    std::string vehicleDate;
+    std::string vehicleType;
     std::string plateNumber;
-    float price;
-    std::string time;
+    std::string vehicleAction;
+    std::string vehicleTime;
 public:
 
-    Vehicle(std::string type, std::string plateNumber, float price, std::string time);
+    Vehicle(std::string date,std::string type, std::string plate,
+            std::string action, std::string time);
     virtual ~Vehicle();
-    std::string description();
-    virtual void populateArrrays();
-    virtual void setPrice(float price);
-    virtual int calculateTotalTakingsForDay();
-    virtual int getTotalNumberOfEachVehicleType();
-    virtual int calculateTotalTakingsForEachVehicleType();
-    virtual int getNumberOfEachVehicleTypeTurnedAway();
-    virtual std::string getDate();
-    virtual void readFileData();
-};
 
+     std::string& getVehicleDate();
+     std::string& getType();
+     std::string& getPlateNumber();
+     std::string& getTime();
+     std::string& getAction();
+    void setAction(std::string value);
+    void setVehicleDate(std::string value);
+    void setPlateNumber( std::string value);
+    void setType( std::string value);
+    void setTime( std::string value);
+
+//    virtual void setPrice(float price);
+//    virtual int calculateTotalTakingsForDay();
+//    virtual int getTotalNumberOfEachVehicleType();
+//    virtual int calculateTotalTakingsForEachVehicleType();
+//    virtual int getNumberOfEachVehicleTypeTurnedAway();
+//    virtual std::string getDate();
+//    virtual int readFileData(std::string filename);
+//    virtual int checkOutputFileOpen(std::string filename);
+};
 
 class Car : public Vehicle {
 private:
-    std::array<std::string, 1000> carNumber;
-
+    float carPrice = 1;
 public:
-    Car(std::array<std::string, 1000> carNumber);
+    Car(std::string date, std::string type, std::string plateNumber,
+        std::string action, std::string time, float price);
 };
-
 
 class Van : public Vehicle {
 private:
-    std::array<std::string, 20> vanNumber;
+    float vanPrice = 1.50;
 public:
-    Van(std::array<std::string, 20> vanNumber);
+    Van(std::string date, std::string type, std::string plateNumber,
+    std::string action, std::string time, float vanPrice);
 };
 
+class CarPark {
+private:
+    std::vector<Car> carNumber; // 1000
+    std::vector<Van> vanNumber; // 20
+    std::string date;
+    int carSpacesTotal;
+    int vanSpacesTotal;
+    int carSpacesAvailable;
+    int vanSpacesAvailable;
+    double carPricePerHour;
+    double vanPricePerHour;
+    double totalTakings;
+    int totalCars;
+    int totalVans;
+    int carsTurnedAway;
+    int vansTurnedAway;
+
+public:
+    int populateArrays(std::string fileName);
+
+    // Setters for setting values
+    void setCarSpacesTotal(int value);
+    void setVanSpacesTotal(int value);
+    void setCarSpacesAvailable(int value);
+    void setVanSpacesAvailable(int value);
+    void setCarPricePerHour(double value);
+    void setVanPricePerHour(double value);
+    void setDate(std::string value);
+
+    // Getters for accessing values
+     std::string getCarArray();
+     std::string getVanArray();
+    const std::string& getDate();
+    const int& getCarSpacesTotal();
+    const int& getVanSpacesTotal();
+    const int& getCarSpacesAvailable();
+    const int& getVanSpacesAvailable();
+    const double& getCarPricePerHour();
+    const double& getVanPricePerHour();
+
+};
 #endif //COURSEWORK_VEHICLE_H
