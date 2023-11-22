@@ -33,9 +33,7 @@ public:
     void setTime( std::string value);
 
 //    virtual void setPrice(float price);
-//    virtual int calculateTotalTakingsForDay();
-//    virtual int getTotalNumberOfEachVehicleType();
-//    virtual int calculateTotalTakingsForEachVehicleType();
+
 //    virtual int getNumberOfEachVehicleTypeTurnedAway();
 //    virtual std::string getDate();
 //    virtual int readFileData(std::string filename);
@@ -48,6 +46,7 @@ private:
 public:
     Car(std::string date, std::string type, std::string plateNumber,
         std::string action, std::string time, float price);
+    float getPrice();
 };
 
 class Van : public Vehicle {
@@ -56,12 +55,16 @@ private:
 public:
     Van(std::string date, std::string type, std::string plateNumber,
     std::string action, std::string time, float vanPrice);
+    float getPrice();
+
 };
 
 class CarPark {
 private:
     std::vector<Car> carNumber; // 1000
     std::vector<Van> vanNumber; // 20
+    std::vector<Vehicle> vehicleNumber; // TOTAL VEHECLES
+
     std::string date;
     int carSpacesTotal;
     int vanSpacesTotal;
@@ -69,15 +72,15 @@ private:
     int vanSpacesAvailable;
     double carPricePerHour;
     double vanPricePerHour;
-    double totalTakings;
-    int totalCars;
-    int totalVans;
-    int carsTurnedAway;
-    int vansTurnedAway;
+    int carsTurnedAway; // if size full +1
+    int vansTurnedAway; // if size full +1
 
 public:
     int populateArrays(std::string fileName);
-
+    int createFiles();
+    std::string calculateTotalTakingsForDay(std::vector<Car> car, std::vector<Van> van);
+    std::string getTotalNumberOfEachVehicleType(Vehicle temp);
+    std::string calculateTotalTakingsForEachVehicleType();
     // Setters for setting values
     void setCarSpacesTotal(int value);
     void setVanSpacesTotal(int value);
@@ -88,15 +91,19 @@ public:
     void setDate(std::string value);
 
     // Getters for accessing values
-     std::string getCarArray();
-     std::string getVanArray();
-    const std::string& getDate();
-    const int& getCarSpacesTotal();
-    const int& getVanSpacesTotal();
-    const int& getCarSpacesAvailable();
-    const int& getVanSpacesAvailable();
-    const double& getCarPricePerHour();
-    const double& getVanPricePerHour();
+    int getCarArraySize();
+    int getVanArraySize();
+    std::vector<Car> getCarArray();
+    std::vector<Van> getVanArray();
+    std::string getCarArrayElements();
+    std::string getVanArrayElements();
+    std::string getDate();
+    int getCarSpacesTotal();
+    int getVanSpacesTotal();
+    int getCarSpacesAvailable();
+    int getVanSpacesAvailable();
+    double getCarPricePerHour();
+    double getVanPricePerHour();
 
 };
 #endif //COURSEWORK_VEHICLE_H

@@ -9,3 +9,7 @@ Car::Car(std::string vehicleDate, std::string vehicleType, std::string plateNumb
 {
     this->carPrice = price;
 }
+
+float Car::getPrice(){
+    return carPrice;
+}
