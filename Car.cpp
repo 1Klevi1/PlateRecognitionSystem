@@ -14,3 +14,4 @@ Car::Car(std::string vehicleDate, std::string vehicleType, std::string plateNumb
 float Car::getPrice() {
     return carPrice;
 }
+
