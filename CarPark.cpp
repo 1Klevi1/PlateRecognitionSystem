@@ -64,6 +64,7 @@ int CarPark::createFiles() {
     std::ofstream outputFileChanged;
     std::vector<Car> cars;
     std::vector<Van> vans;
+    float totalTakings = 0;
 
     for (auto &vehicle : vehicleNumber) {
         if (vehicle.getVehicleDate() != prevDate) {
@@ -85,18 +86,21 @@ int CarPark::createFiles() {
             outputFileChanged << vehicle.getVehicleDate() << " " << vehicle.getType() << " " <<
                               vehicle.getPlateNumber() << " " << vehicle.getAction() << " " <<
                               vehicle.getTime() << std::endl;
-//            if(vehicle.getType() == "car"){
-//                Car carInstance(vehicle.getVehicleDate(),vehicle.getType(),
-//                             vehicle.getPlateNumber() , vehicle.getAction() ,
-//                                                         vehicle.getTime(), 1.0);
-//                cars.push_back(carInstance);
-//            }
-//            if(vehicle.getType() == "van"){
-//                Van vanInstance(vehicle.getVehicleDate(),vehicle.getType(),
-//                                vehicle.getPlateNumber() , vehicle.getAction() ,
-//                                vehicle.getTime(), 1.0);
-//                vans.push_back(vanInstance);
-//            }
+
+            if(vehicle.getType() == "car"){
+                Car carInstance(vehicle.getVehicleDate(),vehicle.getType(),
+                             vehicle.getPlateNumber() , vehicle.getAction() ,
+                                                         vehicle.getTime(), 1.0);
+                totalTakings+=carInstance.getPrice();
+                cars.push_back(carInstance);
+            }
+            if(vehicle.getType() == "van"){
+                Van vanInstance(vehicle.getVehicleDate(),vehicle.getType(),
+                                vehicle.getPlateNumber() , vehicle.getAction() ,
+                                vehicle.getTime(), 1.0);
+                totalTakings+=vanInstance.getPrice();
+
+            }
 //            outputFileChanged << calculateTotalTakingsForDay(cars,vans) << std::endl;
 
 //            outputFileChanged << "Date: " << vehicle.getVehicleDate() << std::endl;
