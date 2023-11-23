@@ -1,6 +1,4 @@
 #include <iostream>
-#include <fstream>
-#include <sstream>
 #include "Vehicle.h"
 
 int main(int argc, char *argv[]) {
@@ -13,7 +11,5 @@ int main(int argc, char *argv[]) {
 
     CarPark a;
     a.startProgram(inputFileName);
-
-
     return 0;
 }
