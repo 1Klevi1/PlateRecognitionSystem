@@ -20,7 +20,6 @@ public:
     Vehicle(std::string date,std::string type, std::string plate,
             std::string action, std::string time);
     virtual ~Vehicle();
-
      std::string& getVehicleDate();
      std::string& getType();
      std::string& getPlateNumber();
@@ -31,13 +30,6 @@ public:
     void setPlateNumber( std::string value);
     void setType( std::string value);
     void setTime( std::string value);
-
-//    virtual void setPrice(float price);
-
-//    virtual int getNumberOfEachVehicleTypeTurnedAway();
-//    virtual std::string getDate();
-//    virtual int readFileData(std::string filename);
-//    virtual int checkOutputFileOpen(std::string filename);
 };
 
 class Car : public Vehicle {
@@ -46,7 +38,7 @@ private:
 public:
     Car(std::string date, std::string type, std::string plateNumber,
         std::string action, std::string time, float price);
-    float getPrice();
+    float getPrice() ;
 };
 
 class Van : public Vehicle {
@@ -55,15 +47,13 @@ private:
 public:
     Van(std::string date, std::string type, std::string plateNumber,
     std::string action, std::string time, float vanPrice);
-    float getPrice();
-
+    float getPrice() ;
 };
 
 class CarPark {
 private:
-    std::vector<Car> carNumber; // 1000
-    std::vector<Van> vanNumber; // 20
-    std::vector<Vehicle> vehicleNumber; // TOTAL VEHECLES
+    std::vector<Vehicle*> vehicleNumber;
+    std::vector<std::vector<Vehicle*>> groupedByDate;
 
     std::string date;
     int carSpacesTotal;
@@ -72,15 +62,14 @@ private:
     int vanSpacesAvailable;
     double carPricePerHour;
     double vanPricePerHour;
-    int carsTurnedAway; // if size full +1
-    int vansTurnedAway; // if size full +1
 
 public:
     int populateArrays(std::string fileName);
-    int createFiles();
+    void createFiles();
     std::string calculateTotalTakingsForDay(std::vector<Car> car, std::vector<Van> van);
-    std::string getTotalNumberOfEachVehicleType(Vehicle temp);
-    std::string calculateTotalTakingsForEachVehicleType();
+    std::string getTotalNumberOfEachVehicleType(std::vector<Car> car, std::vector<Van> van);
+    std::string calculateTotalTakingsForEachVehicleType(std::vector<Car> car, std::vector<Van> van);
+    void startProgram(std::string FileName);
     // Setters for setting values
     void setCarSpacesTotal(int value);
     void setVanSpacesTotal(int value);
@@ -91,12 +80,6 @@ public:
     void setDate(std::string value);
 
     // Getters for accessing values
-    int getCarArraySize();
-    int getVanArraySize();
-    std::vector<Car> getCarArray();
-    std::vector<Van> getVanArray();
-    std::string getCarArrayElements();
-    std::string getVanArrayElements();
     std::string getDate();
     int getCarSpacesTotal();
     int getVanSpacesTotal();
@@ -104,6 +87,5 @@ public:
     int getVanSpacesAvailable();
     double getCarPricePerHour();
     double getVanPricePerHour();
-
 };
 #endif //COURSEWORK_VEHICLE_H

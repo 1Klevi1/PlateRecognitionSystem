@@ -31,128 +31,102 @@ int CarPark::populateArrays(std::string filename) {
             vehicle.setTime(time);
             vehicle.setVehicleDate(date);
         }
-
-//        std::cout<<vehicle.getVehicleDate()<<" "<<vehicle.getType()<<" "<<
-//                 vehicle.getPlateNumber()<<" "<< vehicle.getAction()<<" "<<
-//                 vehicle.getTime() << std::endl;
-        // Create a new Vehicle object based on the type
-
-        Vehicle vehicleInstance(vehicle.getVehicleDate(), vehicle.getType(),
-                        vehicle.getPlateNumber(), vehicle.getAction(),
-                        vehicle.getTime());
+        Vehicle* vehicleInstance = new Vehicle(vehicle.getVehicleDate(), vehicle.getType(),
+                                               vehicle.getPlateNumber(), vehicle.getAction(),
+                                               vehicle.getTime());
         vehicleNumber.push_back(vehicleInstance);
-
-        if (vehicle.getType() == "car") {
-            Car carInstance(vehicle.getVehicleDate(), vehicle.getType(),
-                            vehicle.getPlateNumber(), vehicle.getAction(),
-                            vehicle.getTime(), 1.0);
-            carNumber.push_back(carInstance);
-
-        } else if (vehicle.getType() == "van") {
-            // Your van-specific code here
-            Van vanInstance(vehicle.getVehicleDate(), vehicle.getType(),
-                            vehicle.getPlateNumber(), vehicle.getAction(),
-                            vehicle.getTime(), 1.50);
-            vanNumber.push_back(vanInstance);
-        }
     }
+        for ( auto* vehicle : vehicleNumber) {
+            bool foundGroup = false;
+            for (auto &group: groupedByDate) {
+                if (!group.empty() && group[0]->getVehicleDate() == vehicle->getVehicleDate()) {
+                    group.push_back(vehicle);
+                    foundGroup = true;
+                    break;
+                }
+            }
+            if (!foundGroup) {
+                groupedByDate.push_back({vehicle});
+            }
+        }
     inputFile.close();
     return 0;
 }
-int CarPark::createFiles() {
+
+void CarPark::createFiles() {
+    std::cout <<"testing" <<std::endl;
     std::string prevDate;
     std::ofstream outputFileChanged;
-    std::vector<Car> cars;
-    std::vector<Van> vans;
-    float totalTakings = 0;
+    std::vector<std::string> datesNumber;
+    int carTurned = 0;
+    int vanTurned = 0;
+    for (auto& group : groupedByDate) {
+        for (auto& vehicle : group) {
+            if(vehicle->getVehicleDate() != prevDate){
+                prevDate = vehicle->getVehicleDate();
+                datesNumber.push_back(vehicle->getVehicleDate());
+            }
+        }}
 
-    for (auto &vehicle : vehicleNumber) {
-        if (vehicle.getVehicleDate() != prevDate) {
-            prevDate = vehicle.getVehicleDate();
-            if (!vehicle.getVehicleDate().empty()) {
-                std::string outputFileFormat = vehicle.getVehicleDate().substr(0, 2) +
-                                               vehicle.getVehicleDate().substr(3, 2) +
-                                               vehicle.getVehicleDate().substr(6, 4);
-                // Close the previous file before opening a new one
-                if (outputFileChanged.is_open()) {
-                    outputFileChanged.close();
+    groupedByDate.erase(groupedByDate.begin());
+    for (auto& group : groupedByDate) {
+        std::vector<Car> carArray;
+        std::vector<Van> vanArray;
+        for (auto& date : datesNumber){
+            std::string outputFileFormat = date.substr(0, 2) + date.substr(3, 2) + date.substr(6, 4);
+
+            // Close the previous file before opening a new one
+            if (outputFileChanged.is_open()) {
+                outputFileChanged.close();
+            }
+
+            // Open the file
+            outputFileChanged.open(outputFileFormat + ".dat");
+
+            for (auto& vehicle : group) {
+                if (vehicle->getType() == "car") {
+                    if(carArray.size() < 1000){
+                        Car carInstance(vehicle->getVehicleDate(), vehicle->getType(),
+                                        vehicle->getPlateNumber(), vehicle->getAction(),
+                                        vehicle->getTime(), 1.0);
+                        carArray.push_back(carInstance);
+                    }else{
+                        carTurned++;
+                    }
+
+                } else if (vehicle->getType() == "van") {
+                    if(vanArray.size()< 20){
+                        Van vanInstance(vehicle->getVehicleDate(), vehicle->getType(),
+                                        vehicle->getPlateNumber(), vehicle->getAction(),
+                                        vehicle->getTime(), 1.50);
+                        vanArray.push_back(vanInstance);
+                    }else{
+                        vanTurned++;
+                    }
+
+
                 }
-                outputFileChanged.open(outputFileFormat + ".dat");
             }
-        }
+            outputFileChanged<< "Date: " << date<< std::endl;
+            outputFileChanged<< calculateTotalTakingsForDay(carArray,vanArray) ;
+            outputFileChanged<< getTotalNumberOfEachVehicleType(carArray,vanArray);
+            outputFileChanged<< calculateTotalTakingsForEachVehicleType(carArray,vanArray);
+            outputFileChanged<< "Cars turned away are: " << carTurned << std::endl;
+            outputFileChanged<< "Vans turned away are: " << vanTurned << std::endl;
 
-        if (outputFileChanged.is_open() && !vehicle.getVehicleDate().empty()) {
-
-            outputFileChanged << vehicle.getVehicleDate() << " " << vehicle.getType() << " " <<
-                              vehicle.getPlateNumber() << " " << vehicle.getAction() << " " <<
-                              vehicle.getTime() << std::endl;
-
-            if(vehicle.getType() == "car"){
-                Car carInstance(vehicle.getVehicleDate(),vehicle.getType(),
-                             vehicle.getPlateNumber() , vehicle.getAction() ,
-                                                         vehicle.getTime(), 1.0);
-                totalTakings+=carInstance.getPrice();
-                cars.push_back(carInstance);
-            }
-            if(vehicle.getType() == "van"){
-                Van vanInstance(vehicle.getVehicleDate(),vehicle.getType(),
-                                vehicle.getPlateNumber() , vehicle.getAction() ,
-                                vehicle.getTime(), 1.0);
-                totalTakings+=vanInstance.getPrice();
-
-            }
-//            outputFileChanged << calculateTotalTakingsForDay(cars,vans) << std::endl;
-
-//            outputFileChanged << "Date: " << vehicle.getVehicleDate() << std::endl;
-//            outputFileChanged << calculateTotalTakingsForDay(cars,vans) << std::endl;
-//            outputFileChanged << getTotalNumberOfEachVehicleType(vehicle) << std::endl;
-//            outputFileChanged << calculateTotalTakingsForEachVehicleType() << std::endl;
-//            outputFileChanged << "Cars turned away: " << carsTurnedAway
-//            <<"- Vans turned away: " << vansTurnedAway<< std::endl;
+            datesNumber.erase(datesNumber.begin() + 0);
+            outputFileChanged.close();
+            break;
+            // Close the file after writing all vehicles for the date
         }
     }
+}
+void CarPark::startProgram(std::string FileName){
+    populateArrays(FileName);
+    createFiles();
 
-    // Close the last file after the loop
-    if (outputFileChanged.is_open()) {
-        outputFileChanged.close();
-    }
-
-    return 0;
 }
 
-int CarPark::getCarArraySize(){
-    return getCarArray().size();
-}
-int CarPark::getVanArraySize(){
-    return getVanArray().size();
-}
-
-std::vector<Car> CarPark::getCarArray(){
-    return carNumber;
-}
-std::vector<Van> CarPark::getVanArray(){
-    return vanNumber;
-}
-  std::string CarPark::getCarArrayElements()  {
-    std::string s="";
-    for ( auto& car : carNumber) {
-        // Print information about each Car
-        s+= "Date: " + car.getVehicleDate()+" type: "
-                + car.getType()+ " plate: " + car.getPlateNumber() +" action: "
-                + car.getAction()+" time: " + car.getTime() + "\n";
-    }
-    return s;
-}
-  std::string CarPark::getVanArrayElements()  {
-    std::string s = "";
-    for ( auto& van : vanNumber) {
-        // Print information about each Car
-        s+= "Date: " + van.getVehicleDate() +" type: " + van.getType()+" plate: "
-                + van.getPlateNumber()+ " action: " + van.getAction()+" time: "
-                + van.getTime() +"\n";
-    }
-    return s;
-}
  std::string CarPark::calculateTotalTakingsForDay(std::vector<Car> car, std::vector<Van> van){
     float result = 0;
     for(auto& car1 : car){
@@ -165,31 +139,19 @@ std::vector<Van> CarPark::getVanArray(){
 
      return "Total takings for the day are " + std::to_string(result) + "\n";
 }
-std::string CarPark::getTotalNumberOfEachVehicleType(Vehicle temp){
-    int carTotal = 0;
-    int vanTotal = 0;
-    for(auto& car : carNumber){
-        if(car.getPlateNumber() == temp.getPlateNumber()){
-            carTotal += 1;
-        }
-    }
-    for(auto& van : vanNumber){
-        if(van.getPlateNumber() == temp.getPlateNumber()){
-            vanTotal += 1;
-        }
-    }
+std::string CarPark::getTotalNumberOfEachVehicleType(std::vector<Car> car, std::vector<Van> van){
 
-    return "Total number of Cars for the day are " + std::to_string(carTotal)
-    + " and total of Vans for the day are " + std::to_string(vanTotal)+ "\n";
+    return "Total number of Cars for the day are " + std::to_string(car.size())
+    + " and total of Vans for the day are " + std::to_string(van.size())+ "\n";
 }
-std::string CarPark::calculateTotalTakingsForEachVehicleType(){
+std::string CarPark::calculateTotalTakingsForEachVehicleType(std::vector<Car> car, std::vector<Van> van){
     float carResult = 0;
     float vanResult = 0;
-    for(auto& car : carNumber){
-        carResult += car.getPrice();
+    for(auto& car1 : car){
+        carResult += car1.getPrice();
     }
-    for(auto& van : vanNumber){
-        vanResult += van.getPrice();
+    for(auto& van1 : van){
+        vanResult += van1.getPrice();
     }
     return "Total takings for the Cars are " + std::to_string(carResult)
            + " and total takings for the Vans are " + std::to_string(vanResult)+ "\n";
