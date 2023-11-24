@@ -18,7 +18,7 @@ int CarPark::populateArrays(std::string filename) {
         std::istringstream iss(line);
         Vehicle vehicle("", "", "","", "");
         std::string type, plate, action, time;
-        if((iss >> std::ws).peek() == '0'){
+        if ((iss >> std::ws).peek() == '0' || std::isdigit(iss.peek())) {
             iss >> date;
         }else{
             iss >> type;
@@ -54,7 +54,7 @@ int CarPark::populateArrays(std::string filename) {
 }
 
 void CarPark::createFiles() {
-    std::cout <<"testing" <<std::endl;
+
     std::string prevDate;
     std::ofstream outputFileChanged;
     std::vector<std::string> datesNumber;
