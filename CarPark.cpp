@@ -129,6 +129,10 @@ void CarPark::startProgram(std::string FileName){
 
  std::string CarPark::calculateTotalTakingsForDay(std::vector<Car> car, std::vector<Van> van){
     float result = 0;
+    if(car.empty() && van.empty()){
+        return "Total takings for the day are 0\n";
+
+    }
     for(auto& car1 : car){
             result += car1.getPrice();
 
