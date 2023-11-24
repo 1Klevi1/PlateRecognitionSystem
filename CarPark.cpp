@@ -151,6 +151,10 @@ std::string CarPark::getTotalNumberOfEachVehicleType(std::vector<Car> car, std::
 std::string CarPark::calculateTotalTakingsForEachVehicleType(std::vector<Car> car, std::vector<Van> van){
     float carResult = 0;
     float vanResult = 0;
+    if (car.empty() && van.empty()){
+        return "Total takings for the Cars are 0"
+               " and total takings for the Vans are 0\n";
+    }
     for(auto& car1 : car){
         carResult += car1.getPrice();
     }

@@ -90,7 +90,7 @@ TEST_CASE("Test getTotalNumberOfEachVehicleType", "[getTotalNumberOfEachVehicleT
     // Create a CarPark instance
     CarPark carPark;
 
-    SECTION("Test with non-empty vectors") {
+    SECTION("Test with non-empty data") {
         // Call the function with the test data
         std::string result = carPark.getTotalNumberOfEachVehicleType(cars, vans);
 
@@ -98,8 +98,23 @@ TEST_CASE("Test getTotalNumberOfEachVehicleType", "[getTotalNumberOfEachVehicleT
         REQUIRE(result == "Total number of Cars for the day are " + std::to_string(cars.size()) +
                           " and total of Vans for the day are " + std::to_string(vans.size()) + "\n");
     }
+    SECTION("Test vans") {
+        // Call the function with the test data
+        std::string result = carPark.getTotalNumberOfEachVehicleType({}, vans);
 
-    SECTION("Test with empty vectors") {
+        // Write assertions to check the result
+        REQUIRE(result == "Total number of Cars for the day are 0 "
+                          "and total of Vans for the day are " + std::to_string(vans.size()) + "\n");
+    }
+    SECTION("Test cars") {
+        // Call the function with the test data
+        std::string result = carPark.getTotalNumberOfEachVehicleType(cars, {});
+
+        // Write assertions to check the result
+        REQUIRE(result == "Total number of Cars for the day are "+std::to_string(cars.size())+
+                          " and total of Vans for the day are 0\n");
+    }
+    SECTION("Test with empty data") {
         // Call the function with empty vectors
         std::string result = carPark.getTotalNumberOfEachVehicleType({}, {});
 
@@ -107,4 +122,79 @@ TEST_CASE("Test getTotalNumberOfEachVehicleType", "[getTotalNumberOfEachVehicleT
         REQUIRE(result == "Total number of Cars for the day are 0 and total of Vans for the day are 0\n");
     }
 
+}
+TEST_CASE("calculateTotalTakingsForEachVehicleType", "[calculateTotalTakingsForEachVehicleType]") {
+    // Create some test data (cars and vans) for the day
+    std::vector<Car> cars = {
+            Car("11/10/2023", "Car", "ABC123", "Entry", "08:00", 1.0),
+            Car("11/10/2023", "Car", "DEF456", "Entry", "10:15", 1.0),
+            Car("11/10/2023", "Car", "GHI789", "Entry", "12:30", 1.0)
+            // Add more Car instances as needed
+    };
+
+    std::vector<Van> vans = {
+            Van("11/10/2023", "Van", "XYZ789", "Entry", "09:30", 1.50),
+            Van("11/10/2023", "Van", "LMN101", "Entry", "11:45", 1.50),
+            Van("11/10/2023", "Van", "OPQ202", "Entry", "14:00", 1.50)
+            // Add more Van instances as needed
+    };
+
+    // Create a CarPark instance
+    CarPark carPark;
+
+    SECTION("Test with non-empty data") {
+
+        std::string result = carPark.calculateTotalTakingsForEachVehicleType(cars, vans);
+        float carExpected = 0;
+        float vanExpected = 0;
+
+        for (auto &car: cars) {
+            carExpected += car.getPrice();
+        }
+        for (auto &van: vans) {
+            vanExpected += van.getPrice();
+        }
+        // Assert the expected result
+        REQUIRE(result == "Total takings for the Cars are " + std::to_string(carExpected) +
+                          " and total takings for the Vans are " + std::to_string(vanExpected) + "\n");
+    }
+    SECTION("Test with empty data") {
+        std::string result = carPark.calculateTotalTakingsForEachVehicleType({}, {});
+
+        REQUIRE(result == "Total takings for the Cars are 0 and total takings for the Vans are 0\n");
+
+    }
+    SECTION("Test only cars") {
+        std::vector<Van> emptyVans = {};
+        std::string result = carPark.calculateTotalTakingsForEachVehicleType(cars, emptyVans);
+
+        float carExpected = 0;
+        for (auto &car: cars) {
+            carExpected += car.getPrice();
+        }
+        float vanExpected = 0;
+        for (auto &van: emptyVans) {
+            vanExpected += van.getPrice();
+        }
+
+        REQUIRE(result == "Total takings for the Cars are " + std::to_string(carExpected) +
+                          " and total takings for the Vans are "+ std::to_string(vanExpected) +"\n");
+    }
+    SECTION("Test only vans") {
+        std::vector<Car> emptyCars = {};
+
+        std::string result = carPark.calculateTotalTakingsForEachVehicleType(emptyCars, vans);
+        float carExpected = 0;
+        for (auto &car: emptyCars) {
+            carExpected += car.getPrice();
+        }
+        float vanExpected = 0;
+        for (auto &van: vans) {
+            vanExpected += van.getPrice();
+        }
+
+        REQUIRE(result ==
+                "Total takings for the Cars are "+ std::to_string(carExpected)+" and total takings for the Vans are " + std::to_string(vanExpected) +
+                "\n");
+    }
 }
