@@ -1,0 +1,123 @@
+\doxysection{Van Class Reference}
+\hypertarget{class_van}{}\label{class_van}\index{Van@{Van}}
+
+
+Represents a van, inheriting from the \doxylink{class_vehicle}{Vehicle} class.  
+
+
+
+
+{\ttfamily \#include $<$Vehicle.\+h$>$}
+
+Inheritance diagram for Van\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_van}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_van_a2140ee84929c1e08eb22b5e478cb15c8}{Van}} (std\+::string date, std\+::string type, std\+::string plate\+Number, std\+::string action, std\+::string time, float van\+Price)
+\begin{DoxyCompactList}\small\item\em Constructor for the \doxylink{class_van}{Van} class. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_van_a82a4c9e548a1cd675bd09aa9cd4ed1c5}{get\+Price}} ()
+\begin{DoxyCompactList}\small\item\em Get the price specific to vans. \end{DoxyCompactList}\item 
+\Hypertarget{class_van_add0b3874f2ec33421f594f6b0b92aace}\label{class_van_add0b3874f2ec33421f594f6b0b92aace} 
+void {\bfseries set\+Price} (float value)
+\begin{DoxyCompactList}\small\item\em Set the price specific to vans. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_vehicle}{Vehicle}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_vehicle_ae9e751113ebd29968310fd5bc49dc79b}{Vehicle}} (std\+::string date, std\+::string type, std\+::string plate, std\+::string action, std\+::string time)
+\begin{DoxyCompactList}\small\item\em Constructor for the \doxylink{class_vehicle}{Vehicle} class. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Vehicle} ()
+\begin{DoxyCompactList}\small\item\em Destructor for the \doxylink{class_vehicle}{Vehicle} class. \end{DoxyCompactList}\item 
+std\+::string \& \mbox{\hyperlink{class_vehicle_aaa9c815356d02331756f5b06242faa71}{get\+Vehicle\+Date}} ()
+\begin{DoxyCompactList}\small\item\em Getter for the vehicle date. \end{DoxyCompactList}\item 
+std\+::string \& \mbox{\hyperlink{class_vehicle_aab9f122657bdbef3dd7288cea1a0a04d}{get\+Type}} ()
+\begin{DoxyCompactList}\small\item\em Getter for the vehicle type. \end{DoxyCompactList}\item 
+std\+::string \& \mbox{\hyperlink{class_vehicle_a70989266f85b754759a68707d47be9e7}{get\+Plate\+Number}} ()
+\begin{DoxyCompactList}\small\item\em Getter for the plate number. \end{DoxyCompactList}\item 
+std\+::string \& \mbox{\hyperlink{class_vehicle_a4a13a42b9b35c6eae33737e72e5596a2}{get\+Time}} ()
+\begin{DoxyCompactList}\small\item\em Getter for the vehicle time. \end{DoxyCompactList}\item 
+std\+::string \& \mbox{\hyperlink{class_vehicle_a6a635b33cf29cc86c7435fdaf172d90e}{get\+Action}} ()
+\begin{DoxyCompactList}\small\item\em Getter for the vehicle action. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_vehicle_a3e5911b71bcb6bb6ef438aa73a2d61b9}{set\+Action}} (std\+::string value)
+\begin{DoxyCompactList}\small\item\em Setter for the vehicle action. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_vehicle_afe3e84fffb5529438aa7eea2f2217379}{set\+Vehicle\+Date}} (std\+::string value)
+\begin{DoxyCompactList}\small\item\em Setter for the vehicle date. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_vehicle_ac309ef97b19b3745d361a6918cb1a06f}{set\+Plate\+Number}} (std\+::string value)
+\begin{DoxyCompactList}\small\item\em Setter for the plate number. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_vehicle_a8553a06a67456293671bbf65ab5e4d38}{set\+Type}} (std\+::string value)
+\begin{DoxyCompactList}\small\item\em Setter for the vehicle type. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_vehicle_a3583331970abda338f154bc715a9b83a}{set\+Time}} (std\+::string value)
+\begin{DoxyCompactList}\small\item\em Setter for the vehicle time. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a van, inheriting from the \doxylink{class_vehicle}{Vehicle} class. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_van_a2140ee84929c1e08eb22b5e478cb15c8}\label{class_van_a2140ee84929c1e08eb22b5e478cb15c8} 
+\index{Van@{Van}!Van@{Van}}
+\index{Van@{Van}!Van@{Van}}
+\doxysubsubsection{\texorpdfstring{Van()}{Van()}}
+{\footnotesize\ttfamily Van\+::\+Van (\begin{DoxyParamCaption}\item[{std\+::string}]{vehicle\+Date,  }\item[{std\+::string}]{vehicle\+Type,  }\item[{std\+::string}]{plate\+Number,  }\item[{std\+::string}]{vehicle\+Action,  }\item[{std\+::string}]{vehicle\+Time,  }\item[{float}]{price }\end{DoxyParamCaption})}
+
+
+
+Constructor for the \doxylink{class_van}{Van} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em date} & Date of the vehicle action. \\
+\hline
+{\em type} & Type of the vehicle (\doxylink{class_van}{Van}). \\
+\hline
+{\em plate\+Number} & License plate number of the van. \\
+\hline
+{\em action} & Action performed by the van. \\
+\hline
+{\em time} & Time of the van action. \\
+\hline
+{\em price} & Price specific to vans.\\
+\hline
+{\em vehicle\+Date} & The date of the vehicle. \\
+\hline
+{\em vehicle\+Type} & The type of the vehicle (e.\+g., "{}\+Van"{}). \\
+\hline
+{\em plate\+Number} & The plate number of the vehicle. \\
+\hline
+{\em vehicle\+Action} & The action performed by the vehicle (e.\+g., "{}\+Entry"{} or "{}\+Exit"{}). \\
+\hline
+{\em vehicle\+Time} & The time at which the vehicle performed the action. \\
+\hline
+{\em price} & The price associated with the van. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_van_a82a4c9e548a1cd675bd09aa9cd4ed1c5}\label{class_van_a82a4c9e548a1cd675bd09aa9cd4ed1c5} 
+\index{Van@{Van}!getPrice@{getPrice}}
+\index{getPrice@{getPrice}!Van@{Van}}
+\doxysubsubsection{\texorpdfstring{getPrice()}{getPrice()}}
+{\footnotesize\ttfamily float Van\+::get\+Price (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the price specific to vans. 
+
+Get the price associated with the van.
+
+\begin{DoxyReturn}{Returns}
+Price specific to vans.
+
+The price of the van. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_vehicle_8h}{Vehicle.\+h}}\item 
+\mbox{\hyperlink{_van_8cpp}{Van.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,61 @@
+\doxysection{main.\+cpp File Reference}
+\hypertarget{main_8cpp}{}\label{main_8cpp}\index{main.cpp@{main.cpp}}
+
+
+The main function of the program.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include "{}Vehicle.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em The main function of the program. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The main function of the program. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\label{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97} 
+\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char \texorpdfstring{$\ast$}{*}}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+The main function of the program. 
+
+This function is the entry point of the program and is responsible for handling command-\/line arguments and starting the \doxylink{class_car_park}{Car\+Park} program.
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & The number of command-\/line arguments. \\
+\hline
+{\em argv} & An array of strings containing the command-\/line arguments.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on successful execution, non-\/zero on error. 
+\end{DoxyReturn}
+Check the number of command-\/line arguments.
+
+If the number of command-\/line arguments is not equal to 2, print a usage message and exit the program with an error code.
+
+Get the input file name from command-\/line arguments.
+
+The input file name is the second command-\/line argument (argv\mbox{[}1\mbox{]}).
+
+Start the \doxylink{class_car_park}{Car\+Park} program with the specified input file.
+
+This method reads data from the input file, processes it, and performs other necessary operations.
+
+
+\begin{DoxyParams}{Parameters}
+{\em input\+File\+Name} & The name of the input file.\\
+\hline
+\end{DoxyParams}

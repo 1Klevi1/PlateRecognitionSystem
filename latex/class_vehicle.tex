@@ -1,0 +1,271 @@
+\doxysection{Vehicle Class Reference}
+\hypertarget{class_vehicle}{}\label{class_vehicle}\index{Vehicle@{Vehicle}}
+
+
+Represents a vehicle with information about its date, type, plate number, action, and time.  
+
+
+
+
+{\ttfamily \#include $<$Vehicle.\+h$>$}
+
+Inheritance diagram for Vehicle\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_vehicle}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_vehicle_ae9e751113ebd29968310fd5bc49dc79b}{Vehicle}} (std\+::string date, std\+::string type, std\+::string plate, std\+::string action, std\+::string time)
+\begin{DoxyCompactList}\small\item\em Constructor for the \doxylink{class_vehicle}{Vehicle} class. \end{DoxyCompactList}\item 
+\Hypertarget{class_vehicle_a61ab140c755b8e0e824d54117cf4546f}\label{class_vehicle_a61ab140c755b8e0e824d54117cf4546f} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Vehicle} ()
+\begin{DoxyCompactList}\small\item\em Destructor for the \doxylink{class_vehicle}{Vehicle} class. \end{DoxyCompactList}\item 
+std\+::string \& \mbox{\hyperlink{class_vehicle_aaa9c815356d02331756f5b06242faa71}{get\+Vehicle\+Date}} ()
+\begin{DoxyCompactList}\small\item\em Getter for the vehicle date. \end{DoxyCompactList}\item 
+std\+::string \& \mbox{\hyperlink{class_vehicle_aab9f122657bdbef3dd7288cea1a0a04d}{get\+Type}} ()
+\begin{DoxyCompactList}\small\item\em Getter for the vehicle type. \end{DoxyCompactList}\item 
+std\+::string \& \mbox{\hyperlink{class_vehicle_a70989266f85b754759a68707d47be9e7}{get\+Plate\+Number}} ()
+\begin{DoxyCompactList}\small\item\em Getter for the plate number. \end{DoxyCompactList}\item 
+std\+::string \& \mbox{\hyperlink{class_vehicle_a4a13a42b9b35c6eae33737e72e5596a2}{get\+Time}} ()
+\begin{DoxyCompactList}\small\item\em Getter for the vehicle time. \end{DoxyCompactList}\item 
+std\+::string \& \mbox{\hyperlink{class_vehicle_a6a635b33cf29cc86c7435fdaf172d90e}{get\+Action}} ()
+\begin{DoxyCompactList}\small\item\em Getter for the vehicle action. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_vehicle_a3e5911b71bcb6bb6ef438aa73a2d61b9}{set\+Action}} (std\+::string value)
+\begin{DoxyCompactList}\small\item\em Setter for the vehicle action. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_vehicle_afe3e84fffb5529438aa7eea2f2217379}{set\+Vehicle\+Date}} (std\+::string value)
+\begin{DoxyCompactList}\small\item\em Setter for the vehicle date. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_vehicle_ac309ef97b19b3745d361a6918cb1a06f}{set\+Plate\+Number}} (std\+::string value)
+\begin{DoxyCompactList}\small\item\em Setter for the plate number. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_vehicle_a8553a06a67456293671bbf65ab5e4d38}{set\+Type}} (std\+::string value)
+\begin{DoxyCompactList}\small\item\em Setter for the vehicle type. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_vehicle_a3583331970abda338f154bc715a9b83a}{set\+Time}} (std\+::string value)
+\begin{DoxyCompactList}\small\item\em Setter for the vehicle time. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a vehicle with information about its date, type, plate number, action, and time. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_vehicle_ae9e751113ebd29968310fd5bc49dc79b}\label{class_vehicle_ae9e751113ebd29968310fd5bc49dc79b} 
+\index{Vehicle@{Vehicle}!Vehicle@{Vehicle}}
+\index{Vehicle@{Vehicle}!Vehicle@{Vehicle}}
+\doxysubsubsection{\texorpdfstring{Vehicle()}{Vehicle()}}
+{\footnotesize\ttfamily Vehicle\+::\+Vehicle (\begin{DoxyParamCaption}\item[{std\+::string}]{date,  }\item[{std\+::string}]{type,  }\item[{std\+::string}]{plate,  }\item[{std\+::string}]{action,  }\item[{std\+::string}]{time }\end{DoxyParamCaption})}
+
+
+
+Constructor for the \doxylink{class_vehicle}{Vehicle} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em date} & The date of the vehicle. \\
+\hline
+{\em type} & The type of the vehicle. \\
+\hline
+{\em plate} & The plate number of the vehicle. \\
+\hline
+{\em action} & The action performed by the vehicle. \\
+\hline
+{\em time} & The time at which the vehicle action occurred.\\
+\hline
+{\em date} & The date of the vehicle. \\
+\hline
+{\em type} & The type of the vehicle. \\
+\hline
+{\em plate} & The plate number of the vehicle. \\
+\hline
+{\em action} & The action performed by the vehicle. \\
+\hline
+{\em time} & The time of the vehicle action. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_vehicle_a6a635b33cf29cc86c7435fdaf172d90e}\label{class_vehicle_a6a635b33cf29cc86c7435fdaf172d90e} 
+\index{Vehicle@{Vehicle}!getAction@{getAction}}
+\index{getAction@{getAction}!Vehicle@{Vehicle}}
+\doxysubsubsection{\texorpdfstring{getAction()}{getAction()}}
+{\footnotesize\ttfamily std\+::string \& Vehicle\+::get\+Action (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter for the vehicle action. 
+
+Get the action performed by the vehicle.
+
+\begin{DoxyReturn}{Returns}
+Reference to the vehicle action.
+
+A reference to the action performed by the vehicle. 
+\end{DoxyReturn}
+\Hypertarget{class_vehicle_a70989266f85b754759a68707d47be9e7}\label{class_vehicle_a70989266f85b754759a68707d47be9e7} 
+\index{Vehicle@{Vehicle}!getPlateNumber@{getPlateNumber}}
+\index{getPlateNumber@{getPlateNumber}!Vehicle@{Vehicle}}
+\doxysubsubsection{\texorpdfstring{getPlateNumber()}{getPlateNumber()}}
+{\footnotesize\ttfamily std\+::string \& Vehicle\+::get\+Plate\+Number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter for the plate number. 
+
+Get the plate number of the vehicle.
+
+\begin{DoxyReturn}{Returns}
+Reference to the plate number.
+
+A reference to the plate number of the vehicle. 
+\end{DoxyReturn}
+\Hypertarget{class_vehicle_a4a13a42b9b35c6eae33737e72e5596a2}\label{class_vehicle_a4a13a42b9b35c6eae33737e72e5596a2} 
+\index{Vehicle@{Vehicle}!getTime@{getTime}}
+\index{getTime@{getTime}!Vehicle@{Vehicle}}
+\doxysubsubsection{\texorpdfstring{getTime()}{getTime()}}
+{\footnotesize\ttfamily std\+::string \& Vehicle\+::get\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter for the vehicle time. 
+
+Get the time of the vehicle action.
+
+\begin{DoxyReturn}{Returns}
+Reference to the vehicle time.
+
+A reference to the time of the vehicle action. 
+\end{DoxyReturn}
+\Hypertarget{class_vehicle_aab9f122657bdbef3dd7288cea1a0a04d}\label{class_vehicle_aab9f122657bdbef3dd7288cea1a0a04d} 
+\index{Vehicle@{Vehicle}!getType@{getType}}
+\index{getType@{getType}!Vehicle@{Vehicle}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily std\+::string \& Vehicle\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter for the vehicle type. 
+
+Get the type of the vehicle.
+
+\begin{DoxyReturn}{Returns}
+Reference to the vehicle type.
+
+A reference to the type of the vehicle. 
+\end{DoxyReturn}
+\Hypertarget{class_vehicle_aaa9c815356d02331756f5b06242faa71}\label{class_vehicle_aaa9c815356d02331756f5b06242faa71} 
+\index{Vehicle@{Vehicle}!getVehicleDate@{getVehicleDate}}
+\index{getVehicleDate@{getVehicleDate}!Vehicle@{Vehicle}}
+\doxysubsubsection{\texorpdfstring{getVehicleDate()}{getVehicleDate()}}
+{\footnotesize\ttfamily std\+::string \& Vehicle\+::get\+Vehicle\+Date (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter for the vehicle date. 
+
+Get the date of the vehicle.
+
+\begin{DoxyReturn}{Returns}
+Reference to the vehicle date.
+
+A reference to the date of the vehicle. 
+\end{DoxyReturn}
+\Hypertarget{class_vehicle_a3e5911b71bcb6bb6ef438aa73a2d61b9}\label{class_vehicle_a3e5911b71bcb6bb6ef438aa73a2d61b9} 
+\index{Vehicle@{Vehicle}!setAction@{setAction}}
+\index{setAction@{setAction}!Vehicle@{Vehicle}}
+\doxysubsubsection{\texorpdfstring{setAction()}{setAction()}}
+{\footnotesize\ttfamily void Vehicle\+::set\+Action (\begin{DoxyParamCaption}\item[{std\+::string}]{value }\end{DoxyParamCaption})}
+
+
+
+Setter for the vehicle action. 
+
+Set the action performed by the vehicle.
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & The new value for the vehicle action.\\
+\hline
+{\em value} & The new value for the action. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_vehicle_ac309ef97b19b3745d361a6918cb1a06f}\label{class_vehicle_ac309ef97b19b3745d361a6918cb1a06f} 
+\index{Vehicle@{Vehicle}!setPlateNumber@{setPlateNumber}}
+\index{setPlateNumber@{setPlateNumber}!Vehicle@{Vehicle}}
+\doxysubsubsection{\texorpdfstring{setPlateNumber()}{setPlateNumber()}}
+{\footnotesize\ttfamily void Vehicle\+::set\+Plate\+Number (\begin{DoxyParamCaption}\item[{std\+::string}]{value }\end{DoxyParamCaption})}
+
+
+
+Setter for the plate number. 
+
+Set the plate number of the vehicle.
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & The new value for the plate number. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_vehicle_a3583331970abda338f154bc715a9b83a}\label{class_vehicle_a3583331970abda338f154bc715a9b83a} 
+\index{Vehicle@{Vehicle}!setTime@{setTime}}
+\index{setTime@{setTime}!Vehicle@{Vehicle}}
+\doxysubsubsection{\texorpdfstring{setTime()}{setTime()}}
+{\footnotesize\ttfamily void Vehicle\+::set\+Time (\begin{DoxyParamCaption}\item[{std\+::string}]{value }\end{DoxyParamCaption})}
+
+
+
+Setter for the vehicle time. 
+
+Set the time of the vehicle action.
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & The new value for the vehicle time.\\
+\hline
+{\em value} & The new value for the time. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_vehicle_a8553a06a67456293671bbf65ab5e4d38}\label{class_vehicle_a8553a06a67456293671bbf65ab5e4d38} 
+\index{Vehicle@{Vehicle}!setType@{setType}}
+\index{setType@{setType}!Vehicle@{Vehicle}}
+\doxysubsubsection{\texorpdfstring{setType()}{setType()}}
+{\footnotesize\ttfamily void Vehicle\+::set\+Type (\begin{DoxyParamCaption}\item[{std\+::string}]{value }\end{DoxyParamCaption})}
+
+
+
+Setter for the vehicle type. 
+
+Set the type of the vehicle.
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & The new value for the vehicle type.\\
+\hline
+{\em value} & The new value for the type. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_vehicle_afe3e84fffb5529438aa7eea2f2217379}\label{class_vehicle_afe3e84fffb5529438aa7eea2f2217379} 
+\index{Vehicle@{Vehicle}!setVehicleDate@{setVehicleDate}}
+\index{setVehicleDate@{setVehicleDate}!Vehicle@{Vehicle}}
+\doxysubsubsection{\texorpdfstring{setVehicleDate()}{setVehicleDate()}}
+{\footnotesize\ttfamily void Vehicle\+::set\+Vehicle\+Date (\begin{DoxyParamCaption}\item[{std\+::string}]{value }\end{DoxyParamCaption})}
+
+
+
+Setter for the vehicle date. 
+
+Set the date of the vehicle.
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & The new value for the vehicle date.\\
+\hline
+{\em value} & The new value for the date. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_vehicle_8h}{Vehicle.\+h}}\item 
+\mbox{\hyperlink{_vehicle_8cpp}{Vehicle.\+cpp}}\end{DoxyCompactItemize}
