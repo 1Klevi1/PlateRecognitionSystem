@@ -34,7 +34,7 @@ int main(int argc, char *argv[]) {
      * The input file name is the second command-line argument (argv[1]).
      */
     std::string inputFileName = argv[1];
-    CarPark a;
+    CarPark carPark;
 
     /**
     * @brief Start the CarPark program with the specified input file.
@@ -44,7 +44,7 @@ int main(int argc, char *argv[]) {
     *
     * @param inputFileName The name of the input file.
     */
-    a.startProgram(inputFileName);
+    carPark.startProgram(inputFileName);
 
     return 0;
 }
