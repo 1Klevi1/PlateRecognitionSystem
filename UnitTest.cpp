@@ -2,8 +2,8 @@
 // Created by Klevi on 24/11/2023.
 //
 #define CATCH_CONFIG_MAIN
-#include "catch.hpp" // Make sure to include the Catch2 header
-#include "Vehicle.h" // Adjust the header file name based on your implementation
+#include "catch.hpp"
+#include "Vehicle.h"
 
 TEST_CASE("calculateTotalTakingsForDay", "[calculateTotalTakingsForDay]")
 {
@@ -196,5 +196,104 @@ TEST_CASE("calculateTotalTakingsForEachVehicleType", "[calculateTotalTakingsForE
         REQUIRE(result ==
                 "Total takings for the Cars are "+ std::to_string(carExpected)+" and total takings for the Vans are " + std::to_string(vanExpected) +
                 "\n");
+    }
+}
+TEST_CASE("Testing all the setters", "[setDate]") {
+
+// Create a CarPark instance with some initial values
+    CarPark carPark;
+    carPark.setDate("11/10/2023");
+    SECTION("getDate") {
+        REQUIRE(carPark.getDate() == "11/10/2023");
+    }
+}
+TEST_CASE("CarPark populateArrays", "[CarPark]") {
+    // Create a CarPark instance
+    CarPark carPark;
+
+    SECTION("Valid Input File") {
+        // Provide a valid input file with test data
+        std::string validFileName = "valid_input.txt";
+
+        // Create the valid input file with test data
+        std::ofstream validInputFile(validFileName);
+        validInputFile << "11/10/2023\n";
+        validInputFile << "Car ABC123 IN 08:00\n";
+        validInputFile << "car DEF456 OUT 10:15\n";
+        validInputFile << "van XYZ789 IN 09:30\n";
+        validInputFile << "van LMN101 OUT 11:45\n";
+        validInputFile << "22/10/2023\n";
+        validInputFile << "car ABC123 IN 08:00\n";
+        validInputFile << "car DEF456 OUT 10:15\n";
+        validInputFile << "van XYZ789 IN 09:30\n";
+        validInputFile << "van LMN101 OUT 11:45\n";
+        validInputFile.close();
+
+        // Call the populateArrays method
+        int result = carPark.populateArrays(validFileName);
+
+        // Assert the result
+        REQUIRE(result == 0);
+
+        // Assert that the arrays are populated correctly
+        REQUIRE(carPark.getVehicleNumber().size() == 8);
+        REQUIRE(carPark.getGroupedByDate().size() == 2);
+    }
+
+    SECTION("Invalid Input File") {
+        // Provide an invalid input file (non-existent file)
+        std::string invalidFileName = "nonexistent_file.txt";
+
+        // Call the populateArrays method with an invalid file
+        int result = carPark.populateArrays(invalidFileName);
+
+        // Assert the result
+        REQUIRE(result == 1);
+    }
+}
+TEST_CASE("populateDateArray", "[populateDateArray]") {
+    SECTION("Test with no vehicles (empty data)") {
+        std::vector<std::vector<Vehicle*>> emptyData;
+        CarPark carParkEmpty;
+        std::vector<std::string> resultEmpty = carParkEmpty.populateDateArray(emptyData);
+        REQUIRE(resultEmpty.empty());
+    }
+    SECTION("Test with a single date and multiple vehicles on that date") {
+        std::vector<std::vector<Vehicle*>> singleDateData = {
+                {new Vehicle("11/10/2023", "car", "ABC123", "IN", "08:00")},
+                {new Vehicle("11/10/2023", "van", "XYZ789", "IN", "09:30")},
+                {new Vehicle("11/10/2023", "car", "DEF456", "IN", "10:15")},
+        };
+        CarPark carParkSingleDate;
+        std::vector<std::string> resultSingleDate = carParkSingleDate.populateDateArray(singleDateData);
+        REQUIRE(resultSingleDate.size() == 1);  // One unique date in the test data
+        REQUIRE(resultSingleDate[0] == "11/10/2023");
+
+        // Clean up - Delete the dynamically allocated Vehicle instances
+        for (auto& group : singleDateData) {
+            for (auto& vehicle : group) {
+                delete vehicle;
+            }
+        }
+    }
+    SECTION("Test with multiple dates") {
+
+        std::vector<std::vector<Vehicle*>> multipleDatesData = {
+                {new Vehicle("11/10/2023", "car", "ABC123", "IN", "08:00")},
+                {new Vehicle("12/10/2023", "van", "XYZ789", "IN", "09:30")},
+                {new Vehicle("13/10/2023", "car", "DEF456", "IN", "10:15")},
+        };
+        CarPark carParkMultipleDates;
+        std::vector<std::string> resultMultipleDates = carParkMultipleDates.populateDateArray(multipleDatesData);
+        REQUIRE(resultMultipleDates.size() == 3);
+        REQUIRE(resultMultipleDates[0] == "11/10/2023");
+        REQUIRE(resultMultipleDates[1] == "12/10/2023");
+        REQUIRE(resultMultipleDates[2] == "13/10/2023");
+
+        for (auto& group : multipleDatesData) {
+            for (auto& vehicle : group) {
+                delete vehicle;
+            }
+        }
     }
 }

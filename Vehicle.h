@@ -56,13 +56,6 @@ private:
     std::vector<std::vector<Vehicle*>> groupedByDate;
 
     std::string date;
-    int carSpacesTotal;
-    int vanSpacesTotal;
-    int carSpacesAvailable;
-    int vanSpacesAvailable;
-    double carPricePerHour;
-    double vanPricePerHour;
-
 public:
     int populateArrays(std::string fileName);
     void createFiles();
@@ -70,22 +63,10 @@ public:
     std::string getTotalNumberOfEachVehicleType(std::vector<Car> car, std::vector<Van> van);
     std::string calculateTotalTakingsForEachVehicleType(std::vector<Car> car, std::vector<Van> van);
     void startProgram(std::string FileName);
-    // Setters for setting values
-    void setCarSpacesTotal(int value);
-    void setVanSpacesTotal(int value);
-    void setCarSpacesAvailable(int value);
-    void setVanSpacesAvailable(int value);
-    void setCarPricePerHour(double value);
-    void setVanPricePerHour(double value);
     void setDate(std::string value);
-
-    // Getters for accessing values
+    std::vector<Vehicle *> &getVehicleNumber();
+    std::vector<std::vector<Vehicle *>> &getGroupedByDate();
+    std::vector<std::string> populateDateArray(std::vector<std::vector<Vehicle*>> groupedByDate);
     std::string getDate();
-    int getCarSpacesTotal();
-    int getVanSpacesTotal();
-    int getCarSpacesAvailable();
-    int getVanSpacesAvailable();
-    double getCarPricePerHour();
-    double getVanPricePerHour();
 };
 #endif //COURSEWORK_VEHICLE_H
