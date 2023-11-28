@@ -123,6 +123,16 @@ public:
         std::string action, std::string time, float price);
 
     /**
+     * @brief Constructor for the Car class.
+     * @param date Date of the vehicle action.
+     * @param type Type of the vehicle (Car).
+     * @param plateNumber License plate number of the car.
+     * @param action Action performed by the car.
+     * @param time Time of the car action.
+     */
+    Car(std::string date, std::string type, std::string plateNumber,
+        std::string action, std::string time);
+    /**
      * @brief Get the price specific to cars.
      * @return Price specific to cars.
      */
@@ -155,6 +165,16 @@ public:
     Van(std::string date, std::string type, std::string plateNumber,
     std::string action, std::string time, float vanPrice);
 
+    /**
+    * @brief Constructor for the Van class.
+    * @param date Date of the vehicle action.
+    * @param type Type of the vehicle (Van).
+    * @param plateNumber License plate number of the van.
+    * @param action Action performed by the van.
+    * @param time Time of the van action.
+    */
+    Van(std::string date, std::string type, std::string plateNumber,
+        std::string action, std::string time);
     /**
      * @brief Get the price specific to vans.
      * @return Price specific to vans.

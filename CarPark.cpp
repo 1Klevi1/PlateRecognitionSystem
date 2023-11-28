@@ -32,21 +32,23 @@ int CarPark::populateArrays(std::string filename) {
         if ((iss >> std::ws).peek() == '0' || std::isdigit(iss.peek())) {
             iss >> date;
         }else{
-            // Read vehicle details
             iss >> type;
             iss >> plate;
             iss >> action;
             iss >> time;
         }
+        Vehicle* vehicleInstance = nullptr;
 
-        // Create a Vehicle instance
-        Vehicle* vehicleInstance = new Vehicle(date, type, plate, action, time);
-
-        // Check if the date is not empty before adding to the array
-        if (vehicleInstance->getVehicleDate() != "") {
-            vehicleNumber.push_back(vehicleInstance);
+        if(type == "car"){
+            vehicleInstance = new Car(date, type, plate, action, time);
+        }else{
+            vehicleInstance = new Van(date, type, plate, action, time);
         }
 
+        // Check if the date and the type is not empty before adding to the array
+        if (vehicleInstance->getVehicleDate() != "" && vehicleInstance->getType() != "") {
+            vehicleNumber.push_back(vehicleInstance);
+        }
     }
     // Group vehicles by date
     groupVehiclesByDate(vehicleNumber);
@@ -111,23 +113,17 @@ void CarPark::createFiles() {
             int vanTurned = 0;  ///< Variable to count turned away vans.
 
             // Process each vehicle in the group
-            for (auto& vehicle : group) {
+            for (auto vehicle : group) {
                 // Check vehicle type and add to corresponding array
-                if (vehicle->getType() == "car") {
+                if (Car* carPtr = dynamic_cast<Car*>(vehicle)) {
                     if(carArray.size() < 1000){
-                        Car carInstance(vehicle->getVehicleDate(), vehicle->getType(),
-                                        vehicle->getPlateNumber(), vehicle->getAction(),
-                                        vehicle->getTime(), 1.0);
-                        carArray.push_back(carInstance);
+                        carArray.push_back(*carPtr);
                     }else{
                         carTurned++;
                     }
-                } else if (vehicle->getType() == "van") {
+                } else if (Van* vanPtr = dynamic_cast<Van*>(vehicle)) {
                     if(vanArray.size()< 20){
-                        Van vanInstance(vehicle->getVehicleDate(), vehicle->getType(),
-                                        vehicle->getPlateNumber(), vehicle->getAction(),
-                                        vehicle->getTime(), 1.50);
-                        vanArray.push_back(vanInstance);
+                        vanArray.push_back(*vanPtr);
                     }else{
                         vanTurned++;
                     }

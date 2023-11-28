@@ -1,13 +1,15 @@
+#define CATCH_CONFIG_MAIN
+#include "catch.hpp"
+#include "Vehicle.h"
  /**
  * @file UnitTest.cpp
  * @brief Unit tests
  */
+
 //
 // Created by Klevi on 24/11/2023.
 //
-#define CATCH_CONFIG_MAIN
-#include "catch.hpp"
-#include "Vehicle.h"
+
 
 /**
  * @brief Test case for calculating total takings for the day in CarPark Class.
@@ -215,7 +217,8 @@ TEST_CASE("calculateTotalTakingsForEachVehicleType", "[calculateTotalTakingsForE
         }
 
         REQUIRE(result ==
-                "Total takings for the Cars are "+ std::to_string(carExpected)+" and total takings for the Vans are " + std::to_string(vanExpected) +
+                "Total takings for the Cars are "+
+                std::to_string(carExpected)+" and total takings for the Vans are " + std::to_string(vanExpected) +
                 "\n");
     }
 }
@@ -439,7 +442,7 @@ TEST_CASE("populateDateArray", "[populateDateArray]") {
 
      SECTION("Setters should update the values correctly") {
          car.setVehicleDate("12/10/2023");
-         car.setType("Car"); // FIX THIS
+         car.setType("Car");
          car.setPlateNumber("XYZ789");
          car.setAction("OUT");
          car.setTime("09:30");
@@ -470,7 +473,7 @@ TEST_CASE("populateDateArray", "[populateDateArray]") {
 
      SECTION("Setters should update the values correctly") {
          van.setVehicleDate("12/10/2023");
-         van.setType("Van"); // FIX THIS
+         van.setType("Van");
          van.setPlateNumber("XYZ789");
          van.setAction("OUT");
          van.setTime("09:30");

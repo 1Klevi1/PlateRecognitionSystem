@@ -14,6 +14,12 @@ Van::Van(std::string vehicleDate, std::string vehicleType, std::string plateNumb
     this->vanPrice = price;
 }
 
+Van::Van(std::string vehicleDate, std::string vehicleType, std::string plateNumber,
+         std::string vehicleAction, std::string vehicleTime)
+        : Vehicle(vehicleDate, vehicleType, plateNumber, vehicleAction, vehicleTime)
+{
+}
+
 float Van::getPrice(){
     return vanPrice;
 }

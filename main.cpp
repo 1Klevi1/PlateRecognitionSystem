@@ -1,9 +1,10 @@
+#include <iostream>
+#include "Vehicle.h"
 /**
 * @file Main.cpp
 * @brief The main function of the program.
 */
-#include <iostream>
-#include "Vehicle.h"
+
 /**
  * @brief The main function of the program.
  *
@@ -44,7 +45,7 @@ int main(int argc, char *argv[]) {
     *
     * @param inputFileName The name of the input file.
     */
-    carPark.startProgram(inputFileName);
+    carPark.startProgram("valid_input.txt");
 
     return 0;
 }
