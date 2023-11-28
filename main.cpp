@@ -45,7 +45,7 @@ int main(int argc, char *argv[]) {
     *
     * @param inputFileName The name of the input file.
     */
-    carPark.startProgram("valid_input.txt");
+    carPark.startProgram(inputFileName);
 
     return 0;
 }
