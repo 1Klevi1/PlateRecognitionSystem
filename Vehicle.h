@@ -122,6 +122,8 @@ public:
     Car(std::string date, std::string type, std::string plateNumber,
         std::string action, std::string time, float price);
 
+    Car(std::string date, std::string type, std::string plateNumber,
+        std::string action, std::string time);
     /**
      * @brief Get the price specific to cars.
      * @return Price specific to cars.
@@ -155,6 +157,8 @@ public:
     Van(std::string date, std::string type, std::string plateNumber,
     std::string action, std::string time, float vanPrice);
 
+    Van(std::string date, std::string type, std::string plateNumber,
+        std::string action, std::string time);
     /**
      * @brief Get the price specific to vans.
      * @return Price specific to vans.
