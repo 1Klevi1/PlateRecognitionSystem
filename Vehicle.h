@@ -178,92 +178,121 @@ private:
     std::string date;   ///<  Date associated with the vehicles in the car park.
 public:
     /**
-     * @brief Populates the arrays of vehicles based on the information provided in the input file.
-     * @param fileName The name of the input file.
-     * @return Returns 0 on success, 1 if unable to open the input file.
-     */
+    * @brief Populate arrays with vehicle data from the given file.
+    *
+    * This function reads vehicle data from a file, creates Vehicle instances,
+    * and populates arrays based on the date of the vehicles.
+    *
+    * @param filename The name of the input file containing vehicle data.
+    * @return 0 on success, 1 if the input file cannot be opened.
+    */
     int populateArrays(std::string fileName);
 
     /**
-     * @brief Creates files based on the populated arrays.
-     */
+    * @brief Creates output files for each date and writes information about vehicles.
+    *
+    * This method processes grouped vehicle data by date and creates output files for each date.
+    * It writes information about cars, vans, total takings, and turned away vehicles to the files.
+    */
     void createFiles();
 
     /**
-     * @brief Calculates the total takings for a given day.
-     * @param car Vector of Car objects for the day.
-     * @param van Vector of Van objects for the day.
-     * @return Returns a string containing the total takings for the day.
-     */
+    * Calculates the total takings for the day based on the provided vectors of cars and vans.
+    *
+    * If both vectors are empty, the total takings are considered as 0.
+    *
+    * @param car A vector containing Car objects.
+    * @param van A vector containing Van objects.
+    * @return A string representing the total takings for the day.
+    */
     std::string calculateTotalTakingsForDay(std::vector<Car> car, std::vector<Van> van);
 
     /**
-     * @brief Gets the total number of each vehicle type for the day.
-     * @param car Vector of Car objects for the day.
-     * @param van Vector of Van objects for the day.
-     * @return Returns a string containing the total number of Cars and Vans for the day.
-     */
+    * @brief Calculates the total number of each vehicle type for the day.
+    *
+    * This method takes vectors of cars and vans and returns a formatted string
+    * containing the total number of cars and vans for the day.
+    *
+    * @param car Vector of Car objects for the day.
+    * @param van Vector of Van objects for the day.
+    * @return A string with the total number of Cars and Vans for the day.
+    */
     std::string getTotalNumberOfEachVehicleType(std::vector<Car> car, std::vector<Van> van);
 
     /**
-     * @brief Calculates the total takings for each vehicle type for the day.
-     * @param car Vector of Car objects for the day.
-     * @param van Vector of Van objects for the day.
-     * @return Returns a string containing the total takings for Cars and Vans separately.
-     */
+    * Calculates the total takings for each vehicle type (Cars and Vans) for a given day.
+    *
+    * This function takes vectors of Car and Van objects and calculates the total takings
+    * for each vehicle type separately. It sums up the prices of all the cars and vans
+    * provided in the input vectors.
+    *
+    * @param car A vector containing Car objects for the day.
+    * @param van A vector containing Van objects for the day.
+    * @return A formatted string indicating the total takings for Cars and Vans.
+    */
     std::string calculateTotalTakingsForEachVehicleType(std::vector<Car> car, std::vector<Van> van);
 
     /**
-     * @brief Starts the car park program.
-     * @param FileName The name of the input file.
-     */
+    * @brief Start the program by populating arrays from the specified file and creating files.
+    *
+    * This function initializes the CarPark by populating arrays with data from the specified file
+    * and creating necessary files.
+    *
+    * @param FileName The name of the input file containing data for populating arrays.
+    */
     void startProgram(std::string FileName);
 
     /**
-     * @brief Sets the date for the vehicles in the car park.
-     * @param value The date to be set.
-     */
+    * @brief Set the date of the car park.
+    * @param value The new date to set.
+    */
     void setDate(std::string value);
 
 
     /**
-     * @brief Gets the vector of individual vehicles.
-     * @return Reference to the vector of individual vehicles.
-     */
+    * @brief Get the vector containing pointers to all vehicles.
+    * @return A reference to the vector of Vehicle pointers.
+    */
     std::vector<Vehicle *> &getVehicleNumber();
 
     /**
-     * @brief Gets the vector of grouped vehicles based on date.
-     * @return Reference to the vector of grouped vehicles based on date.
-     */
+    * @brief Get the vector containing grouped vehicles by date.
+    * @return A reference to the vector of vectors of Vehicle pointers.
+    */
     std::vector<std::vector<Vehicle *>> &getGroupedByDate();
 
     /**
-    * @brief Populates an array with unique dates based on grouped vehicles.
-    * @param groupedByDate Vector of vectors containing grouped vehicles based on date.
-    * @return Vector of unique dates.
+    * @brief Populates an array with unique dates from grouped vehicle data.
+    *
+    * This function takes a vector of vectors of Vehicle pointers, where each
+    * inner vector represents vehicles grouped by date. It extracts unique dates
+    * and populates an array with them.
+    *
+    * @param groupedByDate A vector of vectors of Vehicle pointers.
+    * @return A vector containing unique dates from the grouped vehicle data.
     */
     std::vector<std::string> populateDateArray(std::vector<std::vector<Vehicle*>> groupedByDate);
 
     /**
-     * @brief Gets the date associated with the vehicles in the car park.
-     * @return The date associated with the vehicles.
-     */
+    * @brief Get the date of the car park.
+    * @return The date of the car park.
+    */
     std::string getDate();
 
-     /**
-     * @brief Groups vehicles by their date.
-     *
-     * This function takes a vector of Vehicle pointers and groups them based on their dates.
-     * It creates a new vector for each unique date and organizes the vehicles accordingly.
-     *
-     * @param vehicleNumber The vector of Vehicle pointers to be grouped.
-     */
+    /**
+    * @brief Groups vehicles by their date.
+    *
+    * This method takes a vector of Vehicle pointers and groups them based on their vehicle date.
+    * It populates the 'groupedByDate' member variable with vectors of vehicles, each vector
+    * representing a group of vehicles with the same date.
+    *
+    * @param vehicleNumber A vector of pointers to Vehicle objects.
+    */
     void groupVehiclesByDate(std::vector<Vehicle*> vehicleNumber);
 
     /**
-      * @brief Sets the vector of individual vehicles.
-      */
+    * @brief Sets the vector of individual vehicles.
+    */
     void setVehicleNumber(std::vector<Vehicle*> vehicleNumber);
     };
 #endif //COURSEWORK_VEHICLE_H
