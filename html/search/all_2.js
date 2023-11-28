@@ -3,7 +3,7 @@ var searchData=
   ['calculatetotaltakingsforday_0',['calculateTotalTakingsForDay',['../class_car_park.html#a331ccdebfdf5cf9faf918757148189bd',1,'CarPark']]],
   ['calculatetotaltakingsforeachvehicletype_1',['calculateTotalTakingsForEachVehicleType',['../class_car_park.html#a1ec513ef7add1de6e222b4ef8eb94919',1,'CarPark']]],
   ['capturer_2',['Capturer',['../class_catch_1_1_capturer.html',1,'Catch']]],
-  ['car_3',['car',['../class_car.html',1,'Car'],['../class_car.html#a0e989f095071f8fec5e8737b4d3a422e',1,'Car::Car()']]],
+  ['car_3',['car',['../class_car.html',1,'Car'],['../class_car.html#a0e989f095071f8fec5e8737b4d3a422e',1,'Car::Car(std::string date, std::string type, std::string plateNumber, std::string action, std::string time, float price)'],['../class_car.html#a1679ff4a1ed4bac9a74d4c3158fa4242',1,'Car::Car(std::string date, std::string type, std::string plateNumber, std::string action, std::string time)']]],
   ['car_2ecpp_4',['Car.cpp',['../_car_8cpp.html',1,'']]],
   ['carpark_5',['CarPark',['../class_car_park.html',1,'']]],
   ['carpark_2ecpp_6',['CarPark.cpp',['../_car_park_8cpp.html',1,'']]],

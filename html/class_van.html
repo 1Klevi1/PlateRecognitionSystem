@@ -95,13 +95,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a2140ee84929c1e08eb22b5e478cb15c8" id="r_a2140ee84929c1e08eb22b5e478cb15c8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_van.html#a2140ee84929c1e08eb22b5e478cb15c8">Van</a> (std::string date, std::string type, std::string plateNumber, std::string action, std::string time, float vanPrice)</td></tr>
 <tr class="memdesc:a2140ee84929c1e08eb22b5e478cb15c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <a class="el" href="class_van.html" title="Represents a van, inheriting from the Vehicle class.">Van</a> class.  <br /></td></tr>
 <tr class="separator:a2140ee84929c1e08eb22b5e478cb15c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8f87da5e85c1fae18845b071944f1c8" id="r_af8f87da5e85c1fae18845b071944f1c8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_van.html#af8f87da5e85c1fae18845b071944f1c8">Van</a> (std::string date, std::string type, std::string plateNumber, std::string action, std::string time)</td></tr>
+<tr class="memdesc:af8f87da5e85c1fae18845b071944f1c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <a class="el" href="class_van.html" title="Represents a van, inheriting from the Vehicle class.">Van</a> class.  <br /></td></tr>
+<tr class="separator:af8f87da5e85c1fae18845b071944f1c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a82a4c9e548a1cd675bd09aa9cd4ed1c5" id="r_a82a4c9e548a1cd675bd09aa9cd4ed1c5"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_van.html#a82a4c9e548a1cd675bd09aa9cd4ed1c5">getPrice</a> ()</td></tr>
 <tr class="memdesc:a82a4c9e548a1cd675bd09aa9cd4ed1c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the price specific to vans.  <br /></td></tr>
 <tr class="separator:a82a4c9e548a1cd675bd09aa9cd4ed1c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:add0b3874f2ec33421f594f6b0b92aace" id="r_add0b3874f2ec33421f594f6b0b92aace"><td class="memItemLeft" align="right" valign="top"><a id="add0b3874f2ec33421f594f6b0b92aace" name="add0b3874f2ec33421f594f6b0b92aace"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setPrice</b> (float value)</td></tr>
-<tr class="memdesc:add0b3874f2ec33421f594f6b0b92aace"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the price specific to vans. <br /></td></tr>
-<tr class="separator:add0b3874f2ec33421f594f6b0b92aace"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_vehicle"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_vehicle')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_vehicle.html">Vehicle</a></td></tr>
 <tr class="memitem:ae9e751113ebd29968310fd5bc49dc79b inherit pub_methods_class_vehicle" id="r_ae9e751113ebd29968310fd5bc49dc79b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vehicle.html#ae9e751113ebd29968310fd5bc49dc79b">Vehicle</a> (std::string date, std::string type, std::string plate, std::string action, std::string time)</td></tr>
 <tr class="memdesc:ae9e751113ebd29968310fd5bc49dc79b inherit pub_methods_class_vehicle"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <a class="el" href="class_vehicle.html" title="Represents a vehicle with information about its date, type, plate number, action, and time.">Vehicle</a> class.  <br /></td></tr>
@@ -145,7 +144,7 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~Vehicle</b> ()</t
 <div class="textblock"><p>Represents a van, inheriting from the <a class="el" href="class_vehicle.html" title="Represents a vehicle with information about its date, type, plate number, action, and time.">Vehicle</a> class. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a2140ee84929c1e08eb22b5e478cb15c8" name="a2140ee84929c1e08eb22b5e478cb15c8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2140ee84929c1e08eb22b5e478cb15c8">&#9670;&#160;</a></span>Van()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a2140ee84929c1e08eb22b5e478cb15c8">&#9670;&#160;</a></span>Van() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -154,13 +153,13 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~Vehicle</b> ()</t
           <td class="memname">Van::Van </td>
           <td>(</td>
           <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>vehicleDate</em>, </td>
+          <td class="paramname"><em>date</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>vehicleType</em>, </td>
+          <td class="paramname"><em>type</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -172,19 +171,19 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~Vehicle</b> ()</t
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>vehicleAction</em>, </td>
+          <td class="paramname"><em>action</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>vehicleTime</em>, </td>
+          <td class="paramname"><em>time</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>price</em>&#160;</td>
+          <td class="paramname"><em>vanPrice</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -202,13 +201,65 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~Vehicle</b> ()</t
     <tr><td class="paramname">plateNumber</td><td>License plate number of the van. </td></tr>
     <tr><td class="paramname">action</td><td>Action performed by the van. </td></tr>
     <tr><td class="paramname">time</td><td>Time of the van action. </td></tr>
-    <tr><td class="paramname">price</td><td>Price specific to vans.</td></tr>
-    <tr><td class="paramname">vehicleDate</td><td>The date of the vehicle. </td></tr>
-    <tr><td class="paramname">vehicleType</td><td>The type of the vehicle (e.g., "Van"). </td></tr>
-    <tr><td class="paramname">plateNumber</td><td>The plate number of the vehicle. </td></tr>
-    <tr><td class="paramname">vehicleAction</td><td>The action performed by the vehicle (e.g., "Entry" or "Exit"). </td></tr>
-    <tr><td class="paramname">vehicleTime</td><td>The time at which the vehicle performed the action. </td></tr>
-    <tr><td class="paramname">price</td><td>The price associated with the van. </td></tr>
+    <tr><td class="paramname">price</td><td>Price specific to vans. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af8f87da5e85c1fae18845b071944f1c8" name="af8f87da5e85c1fae18845b071944f1c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8f87da5e85c1fae18845b071944f1c8">&#9670;&#160;</a></span>Van() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Van::Van </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>date</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>plateNumber</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>action</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>time</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor for the <a class="el" href="class_van.html" title="Represents a van, inheriting from the Vehicle class.">Van</a> class. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">date</td><td>Date of the vehicle action. </td></tr>
+    <tr><td class="paramname">type</td><td>Type of the vehicle (<a class="el" href="class_van.html" title="Represents a van, inheriting from the Vehicle class.">Van</a>). </td></tr>
+    <tr><td class="paramname">plateNumber</td><td>License plate number of the van. </td></tr>
+    <tr><td class="paramname">action</td><td>Action performed by the van. </td></tr>
+    <tr><td class="paramname">time</td><td>Time of the van action. </td></tr>
   </table>
   </dd>
 </dl>
@@ -232,10 +283,7 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~Vehicle</b> ()</t
 </div><div class="memdoc">
 
 <p>Get the price specific to vans. </p>
-<p>Get the price associated with the van.</p>
-<dl class="section return"><dt>Returns</dt><dd>Price specific to vans.</dd>
-<dd>
-The price of the van. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Price specific to vans. </dd></dl>
 
 </div>
 </div>

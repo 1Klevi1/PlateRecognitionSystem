@@ -442,7 +442,6 @@ TEST_CASE("populateDateArray", "[populateDateArray]") {
 
      SECTION("Setters should update the values correctly") {
          car.setVehicleDate("12/10/2023");
-         car.setType("Car");
          car.setPlateNumber("XYZ789");
          car.setAction("OUT");
          car.setTime("09:30");
@@ -473,7 +472,6 @@ TEST_CASE("populateDateArray", "[populateDateArray]") {
 
      SECTION("Setters should update the values correctly") {
          van.setVehicleDate("12/10/2023");
-         van.setType("Van");
          van.setPlateNumber("XYZ789");
          van.setAction("OUT");
          van.setTime("09:30");
@@ -502,7 +500,7 @@ TEST_CASE("populateDateArray", "[populateDateArray]") {
 
      SECTION("Setters should update the values correctly") {
          vehicle.setVehicleDate("12/10/2023");
-         vehicle.setType("Van"); // FIX THIS
+         vehicle.setType("Van");
          vehicle.setPlateNumber("XYZ789");
          vehicle.setAction("Exit");
          vehicle.setTime("09:30");
