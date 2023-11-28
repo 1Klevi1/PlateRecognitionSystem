@@ -25,7 +25,6 @@ int CarPark::populateArrays(std::string filename) {
 
     // Check if the file is open
     if (!inputFile.is_open()) {
-        // Print an error message if the file cannot be opened
         std::cerr << "Unable to open the input file." << std::endl;
         return 1;
     }
@@ -39,12 +38,11 @@ int CarPark::populateArrays(std::string filename) {
 
         // Check if the line contains a date or a vehicle entry
         if ((iss >> std::ws).peek() == '0' || std::isdigit(iss.peek())) {
-            // Read the date if present
             iss >> date;
         }else{
             // Read vehicle details
             iss >> type;
-            vehicle.setType(type);
+            vehicle.setType(type);// change
             iss >> plate;
             vehicle.setPlateNumber(plate);
             iss >> action;

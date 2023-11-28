@@ -1,4 +1,4 @@
-CXX = clang++
+CXX = g++
 CXXFLAGS = -g -Wall -Wextra -Wpedantic
 
 .PHONY: all clean
