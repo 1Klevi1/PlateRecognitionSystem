@@ -217,7 +217,8 @@ TEST_CASE("calculateTotalTakingsForEachVehicleType", "[calculateTotalTakingsForE
         }
 
         REQUIRE(result ==
-                "Total takings for the Cars are "+ std::to_string(carExpected)+" and total takings for the Vans are " + std::to_string(vanExpected) +
+                "Total takings for the Cars are "+
+                std::to_string(carExpected)+" and total takings for the Vans are " + std::to_string(vanExpected) +
                 "\n");
     }
 }
