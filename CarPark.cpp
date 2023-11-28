@@ -117,17 +117,13 @@ void CarPark::createFiles() {
             // Process each vehicle in the group
             for (auto vehicle : group) {
                 // Check vehicle type and add to corresponding array
-                outputFileChanged<< "vehicle: " << vehicle->getType()<< std::endl;
-
                 if (Car* carPtr = dynamic_cast<Car*>(vehicle)) {
                     if(carArray.size() < 1000){
                         carArray.push_back(*carPtr);
-                        std::cout<< "car insude: " << vehicle->getType()<< std::endl;
                     }else{
                         carTurned++;
                     }
                 } else if (Van* vanPtr = dynamic_cast<Van*>(vehicle)) {
-                    std::cout<< "van insude: " << vehicle->getType()<< std::endl;
                     if(vanArray.size()< 20){
                         vanArray.push_back(*vanPtr);
                     }else{
