@@ -420,7 +420,68 @@ TEST_CASE("populateDateArray", "[populateDateArray]") {
      // Assert the expected result
      REQUIRE(result == 1.50);
  }
+/**
+ * @brief Test case for the Car Class Getters and Setters.
+ */
+ TEST_CASE("Car Class Getters and Setters", "[Car]") {
+     // Create a Car instance
+     Car car("22/10/2023", "Car", "ABC123", "IN", "08:00", 1);
 
+     SECTION("Getters should return the correct values") {
+         REQUIRE(car.getVehicleDate() == "22/10/2023");
+         REQUIRE(car.getType() == "Car");
+         REQUIRE(car.getPlateNumber() == "ABC123");
+         REQUIRE(car.getAction() == "IN");
+         REQUIRE(car.getTime() == "08:00");
+         REQUIRE(car.getPrice() == 1);
+
+     }
+
+     SECTION("Setters should update the values correctly") {
+         car.setVehicleDate("12/10/2023");
+         car.setType("Car"); // FIX THIS
+         car.setPlateNumber("XYZ789");
+         car.setAction("OUT");
+         car.setTime("09:30");
+
+         REQUIRE(car.getVehicleDate() == "12/10/2023");
+         REQUIRE(car.getType() == "Car");
+         REQUIRE(car.getPlateNumber() == "XYZ789");
+         REQUIRE(car.getAction() == "OUT");
+         REQUIRE(car.getTime() == "09:30");
+     }
+ }
+ /**
+ * @brief Test case for the Van Class Getters and Setters.
+ */
+ TEST_CASE("Van Class Getters and Setters", "[Van]") {
+     // Create a Car instance
+     Van van("22/10/2023", "Van", "ABC123", "IN", "08:00", 1.50);
+
+     SECTION("Getters should return the correct values") {
+         REQUIRE(van.getVehicleDate() == "22/10/2023");
+         REQUIRE(van.getType() == "Van");
+         REQUIRE(van.getPlateNumber() == "ABC123");
+         REQUIRE(van.getAction() == "IN");
+         REQUIRE(van.getTime() == "08:00");
+         REQUIRE(van.getPrice() == 1.50);
+
+     }
+
+     SECTION("Setters should update the values correctly") {
+         van.setVehicleDate("12/10/2023");
+         van.setType("Van"); // FIX THIS
+         van.setPlateNumber("XYZ789");
+         van.setAction("OUT");
+         van.setTime("09:30");
+
+         REQUIRE(van.getVehicleDate() == "12/10/2023");
+         REQUIRE(van.getType() == "Van");
+         REQUIRE(van.getPlateNumber() == "XYZ789");
+         REQUIRE(van.getAction() == "OUT");
+         REQUIRE(van.getTime() == "09:30");
+     }
+ }
  /**
  * @brief Test case for the Vehicle Class Getters and Setters.
  */
@@ -438,7 +499,7 @@ TEST_CASE("populateDateArray", "[populateDateArray]") {
 
      SECTION("Setters should update the values correctly") {
          vehicle.setVehicleDate("12/10/2023");
-         vehicle.setType("Van");
+         vehicle.setType("Van"); // FIX THIS
          vehicle.setPlateNumber("XYZ789");
          vehicle.setAction("Exit");
          vehicle.setTime("09:30");
