@@ -26,7 +26,6 @@ int CarPark::populateArrays(std::string filename) {
     while (std::getline(inputFile, line)) {
         // Parse each line into vehicle information
         std::istringstream iss(line);
-        Vehicle vehicle("", "", "","", "");
         std::string type, plate, action, time;
 
         // Check if the line contains a date or a vehicle entry
@@ -35,20 +34,13 @@ int CarPark::populateArrays(std::string filename) {
         }else{
             // Read vehicle details
             iss >> type;
-            vehicle.setType(type);      // change
             iss >> plate;
-            vehicle.setPlateNumber(plate);
             iss >> action;
-            vehicle.setAction(action);
             iss >> time;
-            vehicle.setTime(time);
-            vehicle.setVehicleDate(date);
         }
 
         // Create a Vehicle instance
-        Vehicle* vehicleInstance = new Vehicle(vehicle.getVehicleDate(), vehicle.getType(),
-                                               vehicle.getPlateNumber(), vehicle.getAction(),
-                                               vehicle.getTime());
+        Vehicle* vehicleInstance = new Vehicle(date, type, plate, action, time);
 
         // Check if the date is not empty before adding to the array
         if (vehicleInstance->getVehicleDate() != "") {
@@ -56,14 +48,9 @@ int CarPark::populateArrays(std::string filename) {
         }
 
     }
-
     // Group vehicles by date
     groupVehiclesByDate(vehicleNumber);
-
-    // Close the input file
     inputFile.close();
-
-    // Return success
     return 0;
 }
 
