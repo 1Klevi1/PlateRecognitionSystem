@@ -16,7 +16,25 @@
  *
  * @return 0 on successful execution, non-zero on error.
  */
-int main(){
+int main(int argc, char *argv[]) {
+
+    /**
+     * @brief Check the number of command-line arguments.
+     *
+     * If the number of command-line arguments is not equal to 2, print a
+     * usage message and exit the program with an error code.
+     */
+    if (argc != 2) {
+        std::cerr << "Usage: " << argv[0] << " <input_file>" << std::endl;
+        return 1;
+    }
+
+    /**
+     * @brief Get the input file name from command-line arguments.
+     *
+     * The input file name is the second command-line argument (argv[1]).
+     */
+    std::string inputFileName = argv[1];
     CarPark carPark;
 
     /**
@@ -27,7 +45,7 @@ int main(){
     *
     * @param inputFileName The name of the input file.
     */
-    carPark.startProgram("valid_input.txt");
+    carPark.startProgram(inputFileName);
 
     return 0;
 }
