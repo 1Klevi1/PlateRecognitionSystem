@@ -23,7 +23,3 @@ Van::Van(std::string vehicleDate, std::string vehicleType, std::string plateNumb
 float Van::getPrice(){
     return vanPrice;
 }
-
-void Van::setPrice(float value) {
-    vanPrice = value;
-}

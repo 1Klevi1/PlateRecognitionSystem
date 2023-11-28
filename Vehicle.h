@@ -137,11 +137,6 @@ public:
      * @return Price specific to cars.
      */
     float getPrice() ;
-
-    /**
-     * @brief Set the price specific to cars.
-     */
-    void setPrice(float value) ;
 };
 
 /**
@@ -180,11 +175,6 @@ public:
      * @return Price specific to vans.
      */
     float getPrice() ;
-
-    /**
-     * @brief Set the price specific to vans.
-     */
-    void setPrice(float value) ;
 };
 
 /**
