@@ -213,9 +213,9 @@ public:
     *
     * @param car A vector containing Car objects.
     * @param van A vector containing Van objects.
-    * @return A string representing the total takings for the day.
+    * @return A float representing the total takings for the day.
     */
-    std::string calculateTotalTakingsForDay(std::vector<Car> car, std::vector<Van> van);
+    float calculateTotalTakingsForDay(std::vector<Car> car, std::vector<Van> van);
 
     /**
     * @brief Calculates the total number of each vehicle type for the day.
