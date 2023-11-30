@@ -39,38 +39,38 @@ TEST_CASE("calculateTotalTakingsForDay", "[calculateTotalTakingsForDay]")
 
     SECTION("Empty day") {
         // Test when there are no cars or vans
-        std::string result = carPark.calculateTotalTakingsForDay({}, {});
-        REQUIRE(result == "Total takings for the day are 0\n");
+        float result = carPark.calculateTotalTakingsForDay({}, {});
+        REQUIRE(result == 0);
     }
 
     SECTION("Cars only") {
         // Test when there are only cars
         // Populate cars vector with some Car objects
-        std::string result = carPark.calculateTotalTakingsForDay(cars, {});
+        float result = carPark.calculateTotalTakingsForDay(cars, {});
         // Calculate expected result based on the prices of Car objects
         float expected = 0;
         for ( auto& car : cars) {
             expected += car.getPrice();
         }
-        REQUIRE(result == "Total takings for the day are " + std::to_string(expected) + "\n");
+        REQUIRE(result == expected);
     }
 
     SECTION("Vans only") {
         // Test when there are only vans
         // Populate vans vector with some Van objects
-        std::string result = carPark.calculateTotalTakingsForDay({}, vans);
+        float result = carPark.calculateTotalTakingsForDay({}, vans);
         // Calculate expected result based on the prices of Van objects
         float expected = 0;
         for ( auto& van : vans) {
             expected += van.getPrice();
         }
-        REQUIRE(result == "Total takings for the day are " + std::to_string(expected) + "\n");
+        REQUIRE(result == expected);
     }
 
     SECTION("Mixed Cars and Vans") {
         // Test when there are both cars and vans
         // Populate cars and vans vectors with some objects
-        std::string result = carPark.calculateTotalTakingsForDay(cars, vans);
+        float result = carPark.calculateTotalTakingsForDay(cars, vans);
         // Calculate expected result based on the prices of both Car and Van objects
         float expected = 0;
         for ( auto& car : cars) {
@@ -79,7 +79,7 @@ TEST_CASE("calculateTotalTakingsForDay", "[calculateTotalTakingsForDay]")
         for ( auto& van : vans) {
             expected += van.getPrice();
         }
-        REQUIRE(result == "Total takings for the day are " + std::to_string(expected) + "\n");
+        REQUIRE(result == expected);
     }
 }
 

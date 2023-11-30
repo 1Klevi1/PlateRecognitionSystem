@@ -131,12 +131,13 @@ void CarPark::createFiles() {
             }
 
             // Write information to the file
-            outputFileChanged<< "Date: " << date<< std::endl;
-            outputFileChanged<< calculateTotalTakingsForDay(carArray,vanArray) ;
-            outputFileChanged<< getTotalNumberOfEachVehicleType(carArray,vanArray);
-            outputFileChanged<< calculateTotalTakingsForEachVehicleType(carArray,vanArray);
-            outputFileChanged<< "Cars turned away are: " << carTurned << std::endl;
-            outputFileChanged<< "Vans turned away are: " << vanTurned << std::endl;
+            outputFileChanged << "Date: " << date << std::endl;
+            outputFileChanged << "Total takings for the day are "
+            << calculateTotalTakingsForDay(carArray,vanArray) << std::endl;
+            outputFileChanged << getTotalNumberOfEachVehicleType(carArray,vanArray);
+            outputFileChanged << calculateTotalTakingsForEachVehicleType(carArray,vanArray);
+            outputFileChanged << "Cars turned away are: " << carTurned << std::endl;
+            outputFileChanged << "Vans turned away are: " << vanTurned << std::endl;
 
             // Remove the processed date from the vector
             datesNumber.erase(datesNumber.begin() + 0);
@@ -151,10 +152,10 @@ void CarPark::startProgram(std::string FileName){
     createFiles();
 }
 
- std::string CarPark::calculateTotalTakingsForDay(std::vector<Car> car, std::vector<Van> van){
+float CarPark::calculateTotalTakingsForDay(std::vector<Car> car, std::vector<Van> van){
     float result = 0;
     if(car.empty() && van.empty()){
-        return "Total takings for the day are 0\n";
+        return result;
     }
     for(auto& car1 : car){
             result += car1.getPrice();
@@ -162,7 +163,7 @@ void CarPark::startProgram(std::string FileName){
      for(auto& van1 : van){
              result += van1.getPrice();
      }
-     return "Total takings for the day are " + std::to_string(result) + "\n";
+     return result;
 }
 
 std::string CarPark::getTotalNumberOfEachVehicleType(std::vector<Car> car, std::vector<Van> van){
